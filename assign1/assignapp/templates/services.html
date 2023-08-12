@@ -1,0 +1,139 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  {% include "head.html" %}
+  <body>
+    {% include "header.html" %}
+    <section class="_cd_er_aq">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_cd_er_aa">
+              <h2>Services</h2>
+              <ol>
+                <li>Home</li>
+                <li>Services</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="_mj_ol_ek">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_hg_we_fe">
+              <h2>Services <span></span></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          {% for single_ser  in ser_data  %}
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">            
+            <div class="_jk_rt_we">
+              <div class="_kl_er_we">
+                <ol><li>{% if single_ser.image  %}
+                  <img src="{{single_ser.image.url}}" alt="" class="img-fluid">
+                  {% else %}
+  
+                  {% endif %}</li><li></li></ol>
+              </div>
+              <div class="_kj_qw_cd">
+                <h5>{{single_ser.title}}</h5>
+                <p>{{single_ser.description}}</p>
+              </div>
+            </div>           
+          </div>
+          {% endfor %}
+         
+        </div>
+      </div>
+    </section>
+
+
+    <section class="_cd_er_ab">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_hg_we_fe">
+              <h2>Why Choose <span>US</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for single_why  in why_data  %}
+          <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="_cd_er_ac">
+              <div class="_cd_er_ad">
+                <ol><li><i class="fa fa-briefcase"></i></li></ol>
+                <b>{{single_why.title}}</b>
+                <p>{{single_why.description}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================FOOTER>>>STARTED==================================== -->
+    {% include "footer.html" %}
+   
+
+    <!-- ====================================FOOTER>>>END==================================== -->
+
+    {% include "scripts.html" %}
+
+    <script>
+      $(document).ready (function(){
+        $('.menu-toggle').click(function(){
+          $('.menu-toggle').toggleClass('active')
+          $('.menu').toggleClass('active')
+        })
+      })
+    </script>
+
+    <script>
+      $( () => {
+    
+        //On Scroll Functionality
+        $(window).scroll( () => {
+          var windowTop = $(window).scrollTop();
+          windowTop > 50 ? $('.header-wrapper').addClass('og-hf') : $('.header-wrapper').removeClass('og-hf');
+        });
+      });
+    </script>
+
+    <script>
+      $('.counting').each(function() {
+        var $this = $(this),
+        countTo = $this.attr('data-count');
+  
+      $({ countNum: $this.text()}).animate({
+        countNum: countTo
+        },
+
+      {
+
+      duration: 3000,
+      easing:'linear',
+      step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+      complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+    });  
+  
+
+  });
+    </script>
+  </body>
+</html>

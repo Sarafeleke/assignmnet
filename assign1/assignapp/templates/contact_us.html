@@ -1,0 +1,178 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  {% include "head.html" %}
+  <body>
+    {% include "header.html" %}
+    <section class="_cd_er_aq">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_cd_er_aa">
+              <h2>Contact Us</h2>
+              <ol>
+                <li>Home</li>
+                <li>Contact Us</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================CONTACT>>>START==================================== -->
+
+
+    <section id="contact" class="_mn_uy_we">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_hg_we_fe">
+              <h2>Get<span>In Touch</span></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="_cd_er_we_zs">
+              <ol>
+                <li>OUR OFFICE LOCATION
+                  <p>{{info.address}}</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="_cd_er_we_zs _nd_er_io">
+              <ol>
+                <li>OUR CONTACT NUMBER
+                  <p>{{info.phone}}</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="_cd_er_we_zs _nd_er">
+              <ol>
+                <li>OUR CONTACT E-MAIL
+                  <p>{{info.email}}</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+            <h3 class="_lk_iu_ew">Interested in discussing?</h3>
+            <div class="row">
+              <form method="post">
+                {% csrf_token %}
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label for="name">Name <small>*</small></label>
+                  <input id="name" name="name" class="form-control _ge_de_ol" type="text" placeholder="Enter Name" required="" aria-required="true">
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label for="name">Email <small>*</small></label>
+                  <input id="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Enter Email" required="" aria-required="true">
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label for="name">Subject <small>*</small></label>
+                  <input id="subject" name="subject" class="form-control _ge_de_ol" type="text" placeholder="Enter Subject" required="" aria-required="true">
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label for="name">Phone <small>*</small></label>
+                  <input id="phone" name="phone" class="form-control _ge_de_ol" type="text" placeholder="phone number" required="" aria-required="true">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" class="form-control required" rows="5" placeholder="Enter Message" aria-required="true"></textarea>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="btn-02">
+                  <button type="submit">Submit</button>
+                </div>
+              </div>  
+            </form>        
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="_lo_bn_cs_we">
+      <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d249759.19784092825!2d79.10145254589841!3d12.009924873581818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1448883859107" height="450" frameborder="0" allowfullscreen=""></iframe>
+    </section>
+
+    <!-- ====================================CONTACT>>>END==================================== -->
+
+    <!-- ====================================FOOTER>>>STARTED==================================== -->
+
+    {% include "footer.html" %}
+
+    <!-- ====================================FOOTER>>>END==================================== -->
+
+    {% include "scripts.html" %}
+
+    <script>
+      $(document).ready (function(){
+        $('.menu-toggle').click(function(){
+          $('.menu-toggle').toggleClass('active')
+          $('.menu').toggleClass('active')
+        })
+      })
+    </script>
+
+    <script>
+      $( () => {
+    
+        //On Scroll Functionality
+        $(window).scroll( () => {
+          var windowTop = $(window).scrollTop();
+          windowTop > 50 ? $('.header-wrapper').addClass('og-hf') : $('.header-wrapper').removeClass('og-hf');
+        });
+      });
+    </script>
+
+    <script>
+      $('.counting').each(function() {
+        var $this = $(this),
+        countTo = $this.attr('data-count');
+  
+      $({ countNum: $this.text()}).animate({
+        countNum: countTo
+        },
+
+      {
+
+      duration: 3000,
+      easing:'linear',
+      step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+      complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+    });  
+  
+
+  });
+    </script>
+  </body>
+</html>

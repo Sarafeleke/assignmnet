@@ -1,0 +1,212 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  {% include "head.html" %}
+  <body>
+    {% include "header.html" %}
+   <section class="_cd_er_aq">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_cd_er_aa">
+              <h2>About Us</h2>
+              <ol>
+                <li>Home</li>
+                <li>About Us</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- =========================================ABOUT US>>>START========================================= -->
+
+    <section id="aboutus" class="_ab_er_we">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_hg_we_fe">
+              <h2>ABOUT <span>US</span></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          
+
+          <div class="row">
+            <div class="col-lg-8 col-12">
+              <div class="_lk_fr_er">
+                <p>{{abt.about}}</p>
+                <p>{{abt.about}}</p>
+                <div class="_kl_bv_xs">
+                <ol>
+                  <li><p>Deal Support</p></li>
+                  <li><p>Online Consulting</p></li>
+                  <li><p>Document preparation</p></li>
+                </ol>
+              </div>
+              
+            </div>
+  
+          </div>
+          
+          <div class="col-lg-4 col-12">
+            <div class="_lk_rt_we">
+              <img src="{{abt.image.url}}">
+              <div class="_oi_yt_we">
+                <div class="accordion" id="nu_kl">
+                  {% for single_abt1  in abt1  %}
+                  <div class="card">
+                    <div class="card-header" id="mo_yu">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#my-ss" aria-expanded="false" aria-controls="my-ss">
+                          {{single_abt1.title1}}
+                        </button>
+                      </h2>
+                    </div>
+
+                    <div id="my-ss" class="collapse" aria-labelledby="mo_yu" data-parent="#nu_kl">
+                      <div class="card-body">
+                        {{single_abt1.description2}}
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================ABOUT US>>>END========================================= -->
+
+    <!-- ======================================CALCULATION>>>START====================================== -->
+
+    <section class="_ng_cs_we_rw">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="_lk_bg_cd">
+              <img src="assets/images/development.png">
+              <div style="color:#fff;font-size:20px;" class="counting" data-count="1000">0</div>
+              <h5>HAPPY CLIENTS</h5>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="_lk_bg_cd">
+              <img src="assets/images/designing.png">
+              <div style="color:#fff;font-size:20px;" class="counting" data-count="10000">0</div>
+              <h5>CASES SUCCESS</h5>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="_lk_bg_cd">
+              <img src="assets/images/erp.png">
+              <div style="color:#fff;font-size:20px;" class="counting" data-count="2500">0</div>
+              <h5>RECOVERED</h5>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="_lk_bg_cd">
+              <img src="assets/images/ecomerce.png">
+              <div style="color:#fff;font-size:20px;" class="counting" data-count="800">0</div>
+              <h5>CASES DONE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================CALCULATION>>>END====================================== -->
+
+    <section class="_cd_er_ab">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_hg_we_fe">
+              <h2>Why Choose <span>US</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for single_why  in why_data  %}
+          <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="_cd_er_ac">
+              <div class="_cd_er_ad">
+                <ol><li><i class="fa fa-briefcase"></i></li></ol>
+                <b>{{single_why.title}}</b>
+                <p>{{single_why.description}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================FOOTER>>>STARTED==================================== -->
+
+    {% include "footer.html" %}
+
+    <!-- ====================================FOOTER>>>END==================================== -->
+
+    {% include "scripts.html" %}
+
+    <script>
+      $(document).ready (function(){
+        $('.menu-toggle').click(function(){
+          $('.menu-toggle').toggleClass('active')
+          $('.menu').toggleClass('active')
+        })
+      })
+    </script>
+
+    <script>
+      $( () => {
+    
+        //On Scroll Functionality
+        $(window).scroll( () => {
+          var windowTop = $(window).scrollTop();
+          windowTop > 50 ? $('.header-wrapper').addClass('og-hf') : $('.header-wrapper').removeClass('og-hf');
+        });
+      });
+    </script>
+
+    <script>
+      $('.counting').each(function() {
+        var $this = $(this),
+        countTo = $this.attr('data-count');
+  
+      $({ countNum: $this.text()}).animate({
+        countNum: countTo
+        },
+
+      {
+
+      duration: 3000,
+      easing:'linear',
+      step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+      complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+    });  
+  
+
+  });
+    </script>
+  </body>
+</html>
